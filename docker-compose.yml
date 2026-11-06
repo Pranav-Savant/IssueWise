@@ -1,0 +1,35 @@
+services:
+  ml:
+    build:
+      context: ./ml
+    image: issuewise-ml:latest
+    container_name: issuewise-ml
+    ports:
+      - "8000:8000"
+
+  server:
+    build:
+      context: ./server
+    image: issuewise-server:latest
+    container_name: issuewise-server
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./server/.env
+    environment:
+      ML_SERVICE_URL: http://ml:8000
+      FRONTEND_URL: http://localhost
+    depends_on:
+      - ml
+
+  client:
+    build:
+      context: ./client
+      args:
+        VITE_API_URL: http://localhost:5000/api
+    image: issuewise-client:latest
+    container_name: issuewise-client
+    ports:
+      - "80:80"
+    depends_on:
+      - server
