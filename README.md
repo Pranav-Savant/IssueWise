@@ -2,6 +2,10 @@
 
 IssueWise is a machine learning-powered platform that analyzes public GitHub repositories to help developers understand, categorize, and prioritize issues. It combines machine learning, natural language processing, and semantic similarity techniques to provide useful insights into repository issues.
 
+## Demo
+
+[Watch the IssueWise Demo on YouTube](https://www.youtube.com/watch?v=rKOuRXMsByQ)
+
 ## Features
 
 - **Repository Analysis:** Analyze public GitHub repositories and retrieve their issues.
